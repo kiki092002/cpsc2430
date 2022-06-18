@@ -1,0 +1,11 @@
+#the compile to use
+CC=g++
+CFLAGS=-c -Wall
+main: main.o fib.o
+	$(CC) main.o fib.o -o main
+main.o: main.cpp
+	$(CC) $(CFLAGS) main.cpp
+fib.o: fib.cpp
+	$(CC) $(CFLAGS) fib.cpp
+clean:
+	rm –rf *.o main

@@ -1,0 +1,39 @@
+#include <iostream>
+#include "heap.h"
+using namespace std;
+Heap::Heap(){
+  n=0;
+}
+Heap::Heap(int A[],int m){
+  n = m;
+  for( int i = 0 ; i< m ;i++){
+    arr[i] = A[i];
+  }
+  for(int i = ( n - 2) /2; i>=0; i--){
+    percolate_dn(i);
+  }
+}
+bool Heap::Empty() const{
+  return n == 0;
+}
+
+bool Heap::insert(ElementType val){
+  if(n+1 <= CAP){
+    arr[n++] = val;
+  }
+  percolate_up(n-1);
+}
+
+
+ElementType Heap::RemoveMax(){
+  assert(!Empty());
+  swap(a[n-1],a[0]);
+  percolate_dn(0);
+  return a[n];
+}
+
+ElementType Heap::getMinimum(int val){
+  assert(!Empty());
+  int res = INT_MAX;
+  for(
+} 

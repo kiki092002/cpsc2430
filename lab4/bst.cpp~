@@ -1,0 +1,60 @@
+#include "bst.h"
+#include <iostream>
+using namespace std;
+
+BST::BST(): root_(NULL){}
+
+BST::~BST(){
+
+  
+}
+void BST::destructorHelper(Node* p){
+  if(!p) return;
+  destructorHelper(p->left_);
+  destructorHelper(p->right_);
+  delete p;
+}
+bool BST::Empty()const{
+  return root_ == NULL;
+}
+
+void BST::Insert(int val){
+  
+}
+int BST::MinElement()const{
+  Node* ptr = root_;
+  while(ptr->left_ != NULL){
+    ptr = ptr->left_;
+  }
+  return ptr->left_->data;
+}
+  
+int BST::MaxElement()const{
+  Node* tmp = root_;
+  while(tmp->right_ !=NULL){
+    tmp = tmp->right_;
+  }
+  return tmp->right_->data;
+}
+
+bool BST::Search(int val) const{
+  Node* nptr = root_;
+  while(nptr!=NULL && nptr->data !=val){
+    if(val < nptr ->data){
+      nptr = nptr->left_;
+    }
+    nptr = nptr->right_;
+  }
+  return nptr->data == val && nptr;
+  
+}
+
+bool BST::RecurSearch(int val) const{
+  
+}
+
+void BST::Erase(int val){}
+
+int BST::Successor(int val){}
+
+void BST::RangeQuery(int a, int b)const{}
